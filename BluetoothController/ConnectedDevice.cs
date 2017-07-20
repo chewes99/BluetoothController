@@ -33,6 +33,18 @@ namespace BluetoothController
             Init();
         }
 
+        protected override void OnStop()
+        {
+            base.OnStop();
+            ConnectedThread.Cancel();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            ConnectedThread.Cancel();
+        }
+
         /// <summary>
         /// Initializes and modifies the members
         /// </summary>
